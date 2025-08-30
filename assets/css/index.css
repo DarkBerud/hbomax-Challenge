@@ -1,11 +1,7 @@
 @import url("./global.css");
 
-main {
-  background: url("../images/background-subscription.png") no-repeat;
-  background-size: cover;
-}
 
-/* Header */
+
 .header {
   position: relative;
   margin-top: 50px;
@@ -15,13 +11,27 @@ main {
   animation: gradient 10s ease infinite alternate;
 }
 
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .header::after {
   content: "";
   width: 100%;
   height: 250px;
   position: absolute;
   bottom: 0;
-  background: linear-gradient(0deg, var(--primary-color), transparent);
+  background: linear-gradient(0deg , var(--primary-color), transparent);
 }
 
 .header__content {
@@ -65,17 +75,47 @@ main {
   animation: wiggle 2.2s linear infinite;
 }
 
-/* Divider */
+@keyframes wiggle {
+  0%,
+  10% {
+    transform: rotate(0);
+  }
+
+  15% {
+    transform: rotate(-15deg);
+  }
+
+  20% {
+    transform: rotate(10deg);
+  }
+
+  25% {
+    transform: rotate(-10deg);
+  }
+
+  30% {
+    transform: rotate(10deg);
+  }
+
+  35% {
+    transform: rotate(-10deg);
+  }
+
+  40%,
+  100% {
+    transform: rotate(0);
+  }
+}
 
 .divider {
   width: 70%;
   max-width: 700px;
   height: 5px;
-  background: var(--divider-bg-color);
+  background: var(--divider-bd-color);
 }
 
 .offer {
-  text-align: center;
+  text-align:  center;
   font-size: 1.25rem;
 }
 
@@ -95,10 +135,8 @@ main {
   font-weight: 500;
 }
 
-/* Subscription Plans */
-
 .subscription {
-  background: url("../images/background-movies-series.png") no-repeat;
+  background: url(/assets/images/background-movies-series.png) no-repeat;
   background-size: cover;
   position: relative;
 }
@@ -121,16 +159,6 @@ main {
   flex-direction: column;
   justify-content: space-between;
   transition: transform 1s ease-in-out;
-}
-
-.subscription__plans:has(.subscription__card:nth-child(1):hover)
-  .subscription__card:nth-child(2) {
-  transform: rotateY(-45deg);
-}
-
-.subscription__plans:has(.subscription__card:nth-child(2):hover)
-  .subscription__card:nth-child(1) {
-  transform: rotateY(45deg);
 }
 
 .subscription__description {
@@ -165,7 +193,16 @@ main {
   margin-bottom: 16px;
 }
 
-/* Contents */
+.subscription__plans:has(.subscription__card:nth-child(1):hover)
+  .subscription__card:nth-child(2) {
+    transform: rotateY(-45deg);
+  }
+
+.subscription__plans:has(.subscription__card:nth-child(2):hover)
+  .subscription__card:nth-child(1) {
+    transform: rotateY(45deg);
+  }
+
 .contents {
   margin: 100px auto;
 }
@@ -202,43 +239,29 @@ main {
   transition: opacity 2s;
 }
 
-/* HBO Content */
-
 .contents__card:nth-child(1):hover {
-  background-image: url("../images/hbo-hover_0.webp");
+  background-image: url(/assets/images/hbo-hover_0.webp);
 }
-
-/* Max Originals Content */
 
 .contents__card:nth-child(2):hover {
-  background-image: url("../images/MAX-Hover.webp");
+  background-image: url(/assets/images/MAX-Hover.webp);
 }
-
-/* DC Content */
 
 .contents__card:nth-child(3):hover {
-  background-image: url("../images/DC-Hover.webp");
+  background-image: url(/assets/images/DC-Hover.webp);
 }
-
-/* WB Content */
 
 .contents__card:nth-child(4):hover {
-  background-image: url("../images/WB-Hover.webp");
+  background-image: url(/assets/images/WB-Hover.webp);
 }
-
-/* CN Content */
 
 .contents__card:nth-child(5):hover {
-  background-image: url("../images/CN-Hover.png");
+  background-image: url(/assets/images/CN-Hover.png);
 }
-
-/* Champions League Content */
 
 .contents__card:nth-child(6):hover {
-  background-image: url("../images/UCL-Hover.webp");
+  background-image: url(/assets/images/UCL-Hover.webp);
 }
-
-/* Media Queries */
 
 @media screen and (max-width: 1200px) {
   .subscription__plans {
@@ -255,7 +278,7 @@ main {
     flex-direction: column;
     align-items: center;
   }
-
+  
   .subscription__card {
     max-width: 600px;
   }
@@ -298,49 +321,9 @@ main {
   }
 
   .subscription__plans:has(.subscription__card:nth-child(1):hover)
-    .subscription__card:nth-child(2),
+   .subscription__card:nth-child(2),
   .subscription__plans:has(.subscription__card:nth-child(2):hover)
-    .subscription__card:nth-child(1) {
+   .subscription__card:nth-child(1) {
     transform: none;
-  }
-}
-
-/* Animations */
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes wiggle {
-  0%,
-  10% {
-    transform: rotate(0);
-  }
-  15% {
-    transform: rotate(-15deg);
-  }
-  20% {
-    transform: rotate(10deg);
-  }
-  25% {
-    transform: rotate(-10deg);
-  }
-  30% {
-    transform: rotate(10deg);
-  }
-  35% {
-    transform: rotate(-10deg);
-  }
-  40%,
-  100% {
-    transform: rotate(0);
-  }
+   }
 }
